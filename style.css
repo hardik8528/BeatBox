@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.beatbox{
+    width: 500px;
+    height: 500px;
+    background-color: #333;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: space-evenly;
+}
+
+.beat{
+    /* background-color: aqua; */
+    flex-basis: 29%;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    /* background-color: tomato; */
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: sans-serif;
+    border: 5px solid aqua;
+    border-radius: 10px;
+    color: white;
+}
