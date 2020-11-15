@@ -18,6 +18,7 @@ beats = {
     },
     "g": {
         beat: "./Audio And Background/PREL Musical 57.mp3",
+        color: "#FF00FF"
     },
     "h": {
         beat: "./Audio And Background/Musical Compos 33.mp3",
@@ -29,24 +30,43 @@ beats = {
     },
     "k": {
         beat: "./Audio And Background/Drum Snare Roll.mp3",
-        color: "#FF00FF"
+        color: "#FFFFFF"
     },
     "l": {
         beat: "./Audio And Background/Cymbal Suspended 2.mp3",
-        color: "#FF00FF"
+        color: "#FFFFFF"
     }
 };
 
-// Add keydown Event Listener
+// Basic Function Which Important to run as the HTML Code load
+window.onload = () =>{
+   SetButton();
+}
+
+// Add keydown Event Listener And also fire up transitionend eventListener To give effect to the button Of UI
 document.addEventListener("keydown", (event) => {
     AudioPlayer(event.key);
-    SetButton();
+    document.addEventListener("transitionend",() =>{
+        let element = document.getElementById(event.key)
+        element.style.backgroundColor = "transparent";
+        element.style.boxShadow = "none"; 
+    })
 });
 
-//AudioPlayer Function To play Corresponding Audio
+//AudioPlayer Function To play Corresponding Audio And Set up background color boxshadow
 AudioPlayer = (ButtonKey) => {
     let audio = new Audio(beats[ButtonKey].beat);
     audio.currentTime = 0;
     audio.play();
+    let element = document.getElementById(ButtonKey);
+    element.style.backgroundColor = beats[ButtonKey].color;
+    element.style.boxShadow = `0px 0px 17px ${beats[ButtonKey].color}`;
 }
 
+// Setting Up The Button OF UI 
+SetButton = () => {
+    for(key in beats){
+      let element = document.getElementById(key);
+      element.style.borderColor = beats[key].color;
+    }
+}

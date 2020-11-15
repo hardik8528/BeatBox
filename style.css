@@ -43,4 +43,5 @@ body{
     border: 5px solid aqua;
     border-radius: 10px;
     color: white;
+    transition: all 0.2s;
 }
